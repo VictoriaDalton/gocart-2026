@@ -15,8 +15,10 @@ public class DriveTrain extends SubsystemBase {
 
   private final WPI_TalonSRX m_leftMaster = new WPI_TalonSRX(kLeftMasterId);
   private final WPI_TalonSRX m_rightMaster = new WPI_TalonSRX(kRightMasterId);
-  private final WPI_TalonSRX m_leftFollower = new WPI_TalonSRX(kLeftFollowerId);
-  private final WPI_TalonSRX m_rightFollower = new WPI_TalonSRX(kRightFollowerId);
+  private final WPI_TalonSRX m_leftFollowerOne = new WPI_TalonSRX(kLeftFollowerOneId);
+  private final WPI_TalonSRX m_leftFollowerTwo = new WPI_TalonSRX(kLeftFollowerTwoId);
+  private final WPI_TalonSRX m_rightFollowerOne = new WPI_TalonSRX(kRightFollowerOneId);
+  private final WPI_TalonSRX m_rightFollowerTwo = new WPI_TalonSRX(kRightFollowerTwoId);
 
   private final DifferentialDrive m_drive = new DifferentialDrive(m_leftMaster, m_rightMaster);
 
@@ -26,16 +28,22 @@ public class DriveTrain extends SubsystemBase {
 
     m_leftMaster.configFactoryDefault();
     m_rightMaster.configFactoryDefault();
-    m_leftFollower.configFactoryDefault();
-    m_rightFollower.configFactoryDefault();
+    m_leftFollowerOne.configFactoryDefault();
+    m_rightFollowerOne.configFactoryDefault();
+    m_leftFollowerTwo.configFactoryDefault();
+    m_rightFollowerTwo.configFactoryDefault();
 
-    m_leftMaster.setInverted(kLeftMasterInversion);
-    m_leftFollower.setInverted(kLeftFollowerInversion);
-    m_rightMaster.setInverted(kRightMasterInversion);
-    m_rightFollower.setInverted(kRightFollowerInversion);
+    m_leftMaster.setInverted(true);
+    m_leftFollowerOne.setInverted(true);
+    m_leftFollowerTwo.setInverted(true);
+    m_rightMaster.setInverted(false);
+    m_rightFollowerOne.setInverted(false);
+    m_rightFollowerTwo.setInverted(false);
 
-    m_leftFollower.follow(m_leftMaster);
-    m_rightFollower.follow(m_rightMaster);
+    m_leftFollowerOne.follow(m_leftMaster);
+    m_leftFollowerTwo.follow(m_leftMaster);
+    m_rightFollowerOne.follow(m_rightMaster);
+    m_rightFollowerTwo.follow(m_rightMaster);
   }
 
   @Override

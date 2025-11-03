@@ -19,10 +19,12 @@ public final class Constants {
     public static final double stickDeadband = 0.1;
 
     public static final class DriveTrain {
-        public static final int kLeftMasterId = 4;
-        public static final int kLeftFollowerId = 3;
-        public static final int kRightMasterId = 1;
-        public static final int kRightFollowerId = 2;
+        public static final int kLeftMasterId = 11;
+        public static final int kLeftFollowerOneId = 21;
+        public static final int kLeftFollowerTwoId = 31;
+        public static final int kRightMasterId = 10;
+        public static final int kRightFollowerOneId = 20;
+        public static final int kRightFollowerTwoId = 30;
 
 
         public static final InvertType kLeftMasterInversion = InvertType.None;
