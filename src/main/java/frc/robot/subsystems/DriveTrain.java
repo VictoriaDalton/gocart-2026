@@ -56,9 +56,9 @@ public class DriveTrain extends SubsystemBase {
    * @param forward [-1 .. 1] positive is forward
    * @param rotation [-1 .. 1] positive is counter-clockwise
    */
-  public void driveArcade(double forward, double rotation, boolean squareInputs) {
+  public void tankDrive(double right, double left) {
 
     // Flip turn axis because arcadeDrive is not NWU compliant
-    m_drive.arcadeDrive(forward, -rotation, squareInputs);
+    m_drive.tankDrive(left, right);
   }
 }

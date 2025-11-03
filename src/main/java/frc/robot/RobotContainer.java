@@ -30,23 +30,23 @@ public class RobotContainer {
 
   private final CommandXboxController m_controller = new CommandXboxController(0);
 
-  private final DoubleSupplier translation = () -> m_controller.getLeftY();
-  private final DoubleSupplier rotation = () -> -m_controller.getRightX();
+  // private final DoubleSupplier translation = () -> m_controller.getLeftY();
+  // private final DoubleSupplier rotation = () -> -m_controller.getRightX();
   private final PhotonCamera camera = new PhotonCamera("aprilVision");
 
-  private final apriltaglock APRILTAGLOCK = new apriltaglock(m_driveTrain, translation, rotation, camera, 10);
+  // private final apriltaglock APRILTAGLOCK = new apriltaglock(m_driveTrain, translation, rotation, camera, 10);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
      // Drive train default is arcade drive
-     m_driveTrain.setDefaultCommand(new RunCommand(() -> {
-      // Controller y axis is positive right, but z rotation is NWU (positive left)
-      double x = m_controller.getLeftY();
-      double z = -m_controller.getRightX();
-      m_driveTrain.driveArcade(x, z, true);
-    }, m_driveTrain));
+    m_driveTrain.setDefaultCommand(new RunCommand(() -> {
+
+      double left = m_controller.getLeftY();
+      double right = m_controller.getRightY();
+      m_driveTrain.tankDrive(right, left);}));
+
   }
 
   /**
@@ -57,7 +57,7 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
 
-    m_controller.a().whileTrue(APRILTAGLOCK);
+    // m_controller.a().whileTrue(APRILTAGLOCK);
 
   }
 

@@ -181,6 +181,9 @@ public class apriltaglock extends Command {
 
     // Command drivetrain motors based on target speeds
 
-    m_driveTrain.driveArcade(forwardVal, rotationVal, true);
+
+
+    //commented for now since i switched to tank drive, we can change it if necessary
+    // m_driveTrain.driveArcade(forwardVal, rotationVal, true);
   }
 }
