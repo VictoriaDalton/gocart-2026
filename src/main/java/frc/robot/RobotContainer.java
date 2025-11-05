@@ -43,9 +43,9 @@ public class RobotContainer {
      // Drive train default is arcade drive
     m_driveTrain.setDefaultCommand(new RunCommand(() -> {
 
-      double left = m_controller.getLeftY();
-      double right = m_controller.getRightY();
-      m_driveTrain.tankDrive(right, left);}));
+      double right = m_controller.getLeftY();
+      double left = m_controller.getRightY();
+      m_driveTrain.tankDrive(right, left);},m_driveTrain));
 
   }
 
